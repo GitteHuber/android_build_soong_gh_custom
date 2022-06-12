@@ -32,7 +32,7 @@ var (
 			"-march=armv8-a",
 		},
 		"armv8-2a": []string{
-			"-march=armv8.2a",
+			"-march=armv8.2a+dotprod",
 		},
 	}
 
@@ -64,7 +64,7 @@ var (
 		"cortex-a76": []string{
 			// Use the cortex-a55 since it is similar to the little
 			// core (cortex-a55) and is sensitive to ordering.
-			"-mcpu=cortex-a55",
+			"-mcpu=cortex-a55+dotprod",
 		},
 		"kryo": []string{
 			"-mcpu=kryo",
@@ -213,7 +213,7 @@ func arm64ToolchainFactory(arch android.Arch) Toolchain {
 	var extraLdflags string
 	switch arch.CpuVariant {
 	case "cortex-a53", "cortex-a72", "cortex-a73", "kryo", "exynos-m1", "exynos-m2":
-		extraLdflags = "-Wl,--fix-cortex-a53-843419"
+		extraLdflags = "-Wl,--fix-cortex-a53-843419, "
 	}
 
 	return &toolchainArm64{
