@@ -213,7 +213,7 @@ func arm64ToolchainFactory(arch android.Arch) Toolchain {
 	var extraLdflags string
 	switch arch.CpuVariant {
 	case "cortex-a53", "cortex-a72", "cortex-a73", "kryo", "exynos-m1", "exynos-m2":
-		extraLdflags = "-Wl,--fix-cortex-a53-843419, "
+		extraLdflags = "-Wl,--fix-cortex-a53-843419"
 	}
 
 	return &toolchainArm64{
