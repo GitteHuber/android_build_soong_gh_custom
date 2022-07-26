@@ -32,7 +32,7 @@ var (
 			"-march=armv8-a",
 		},
 		"armv8-2a": []string{
-			"-march=armv8.2a+dotprod",
+			"",
 		},
 	}
 
@@ -54,7 +54,7 @@ var (
 			"-mcpu=cortex-a53",
 		},
 		"cortex-a55": []string{
-			"-mcpu=cortex-a55",
+			"-mcpu=cortex-a55+dotprod+crypto",
 		},
 		"cortex-a75": []string{
 			// Use the cortex-a55 since it is similar to the little
@@ -64,7 +64,7 @@ var (
 		"cortex-a76": []string{
 			// Use the cortex-a55 since it is similar to the little
 			// core (cortex-a55) and is sensitive to ordering.
-			"-mcpu=cortex-a55+dotprod",
+			"-mcpu=cortex-a55",
 		},
 		"kryo": []string{
 			"-mcpu=kryo",
