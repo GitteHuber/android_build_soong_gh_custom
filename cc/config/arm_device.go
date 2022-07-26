@@ -62,9 +62,8 @@ var (
 			"-mfpu=neon",
 		},
 		"armv8-a": []string{
-			"-march=armv8-a",
-			"-mfloat-abi=softfp",
-			"-mfpu=crypto-neon-fp-armv8",
+		// Do the optimization with mcpu.
+		// see: https://community.arm.com/arm-community-blogs/b/tools-software-ides-blog/posts/compiler-flags-across-architectures-march-mtune-and-mcpu
 		},
 		"armv8-2a": []string{
 			"-march=armv8.2-a",
@@ -106,7 +105,8 @@ var (
 		},
 		"cortex-a55": []string{
 			"-mcpu=cortex-a55",
-			"-mfpu=neon-fp-armv8",
+			"-mfloat-abi=softfp",
+			"-mfpu=crypto-neon-fp-armv8",
 			// Fake an ARM compiler flag as these processors support LPAE which GCC/clang
 			// don't advertise.
 			// TODO This is a hack and we need to add it for each processor that supports LPAE until some
@@ -124,7 +124,8 @@ var (
 		},
 		"cortex-a76": []string{
 			"-mcpu=cortex-a55",
-			"-mfpu=neon-fp-armv8",
+			"-mfloat-abi=softfp",
+			"-mfpu=crypto-neon-fp-armv8",
 			// Fake an ARM compiler flag as these processors support LPAE which GCC/clang
 			// don't advertise.
 			// TODO This is a hack and we need to add it for each processor that supports LPAE until some
